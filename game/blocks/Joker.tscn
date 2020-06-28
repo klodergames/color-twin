@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://blocks/joker.png" type="Texture" id=1]
+[ext_resource path="res://blocks/Joker.gd" type="Script" id=2]
+
+[node name="Joker" type="Sprite"]
+
+visible = false
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
+
+playback_process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0

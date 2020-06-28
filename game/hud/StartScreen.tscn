@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://ui/default-theme.tres" type="Theme" id=1]
+
+
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "go"
+length = 3.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("LabelGo:rect/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -88, 158 ), Vector2( 296, 158 ), Vector2( 296, 158 ), Vector2( 680, 158 ) ]
+}
+
+[node name="LabelsScreen" type="ReferenceFrame"]
+
+focus_ignore_mouse = false
+focus_stop_mouse = true
+size_flags_horizontal = 2
+size_flags_vertical = 2
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 640.0
+margin_bottom = 360.0
+
+[node name="LabelGo" type="Label" parent="."]
+
+anchor_left = 2
+anchor_top = 2
+anchor_right = 2
+anchor_bottom = 2
+focus_ignore_mouse = true
+focus_stop_mouse = true
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme = ExtResource( 1 )
+margin_left = 408.0
+margin_top = 22.0
+margin_right = 360.0
+margin_bottom = -23.0
+text = "GO"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+root_node = NodePath("..")
+anims/go = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""

@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://menu/main/Main.gd" type="Script" id=1]
+[ext_resource path="res://ui/default-theme.tres" type="Theme" id=2]
+[ext_resource path="res://menu/main/InsertCoin.tscn" type="PackedScene" id=3]
+[ext_resource path="res://menu/main/img/btn1P.png" type="Texture" id=4]
+[ext_resource path="res://menu/main/img/btn2P.png" type="Texture" id=5]
+[ext_resource path="res://menu/main/img/btn2PInactive.png" type="Texture" id=6]
+[ext_resource path="res://menu/main/LevelSelector.tscn" type="PackedScene" id=7]
+[ext_resource path="res://menu/main/img/btnMenu.png" type="Texture" id=8]
+[ext_resource path="res://menu/main/img/btnInfo.png" type="Texture" id=9]
+[ext_resource path="res://menu/main/img/btnEnvelope.png" type="Texture" id=10]
+[ext_resource path="res://menu/main/img/btnEnvelopeOff.png" type="Texture" id=11]
+
+
+
+[node name="Main" type="Node2D"]
+position = Vector2( 320, 180 )
+script = ExtResource( 1 )
+
+[node name="LblTitle" type="Label" parent="."]
+margin_left = -320.0
+margin_top = -165.0
+margin_right = 320.0
+margin_bottom = -125.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+theme = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 0, 0.572549, 1 )
+text = "Color Twin"
+align = 1
+uppercase = true
+
+[node name="InsertCoin" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -100 )
+
+[node name="Btn1P" type="TextureButton" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -72.0
+margin_top = -50.0
+margin_right = -72.0
+margin_bottom = -50.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture_normal = ExtResource( 4 )
+
+[node name="Btn2P" type="TextureButton" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = -50.0
+margin_right = 9.0
+margin_bottom = -50.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture_normal = ExtResource( 5 )
+
+[node name="Btn2PConnect" type="TextureButton" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 9.0
+margin_top = -50.0
+margin_right = -9.0
+margin_bottom = 50.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture_normal = ExtResource( 6 )
+
+[node name="LevelSelector" parent="." instance=ExtResource( 7 )]
+position = Vector2( 0, 54 )
+
+[node name="BtnMenu" type="TextureButton" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -304.0
+margin_top = -164.0
+margin_right = -336.0
+margin_bottom = -196.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture_normal = ExtResource( 8 )
+
+[node name="BtnInfo" type="TextureButton" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 272.0
+margin_top = -164.0
+margin_right = 240.0
+margin_bottom = -196.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture_normal = ExtResource( 9 )
+
+[node name="BtnShowInvitationInbox" type="TextureButton" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 81.0
+margin_top = -25.0
+margin_right = 65.0
+margin_bottom = -41.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+disabled = true
+texture_normal = ExtResource( 10 )
+texture_disabled = ExtResource( 11 )
+
+[node name="HideScreen" type="Tween" parent="."]
+
+[node name="SamplePlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 8, -149.267 )
+[connection signal="pressed" from="Btn1P" to="." method="_on_Btn1P_pressed"]
+[connection signal="pressed" from="Btn2P" to="." method="_on_Btn2P_pressed"]
+[connection signal="pressed" from="Btn2PConnect" to="." method="_on_Btn2PConnect_pressed"]
+[connection signal="pressed" from="BtnMenu" to="." method="_on_BtnMenu_pressed"]
+[connection signal="pressed" from="BtnInfo" to="." method="_on_BtnInfo_pressed"]
+[connection signal="pressed" from="BtnShowInvitationInbox" to="." method="_on_BtnShowInvitationInbox_pressed"]
+[connection signal="tween_completed" from="HideScreen" to="." method="_on_HideScreen_tween_completed"]
