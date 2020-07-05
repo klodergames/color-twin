@@ -1,2 +1,4 @@
-bin
-game/.import
+.mono/
+*.import
+*.DS_Store
+*.directoryame/.import
