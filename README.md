@@ -1,6 +1,6 @@
 # Color Twin
 
-![Color Twin](art/graphics/cover.png)
+![Color Twin](art/graphics/cover-processed.png)
 
 Join color twins
 
